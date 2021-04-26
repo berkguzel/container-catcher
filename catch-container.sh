@@ -25,7 +25,9 @@ for argument in "$@"; do
 	value=$( echo "${argument}" | cut -d '=' -f 2 )
 	case $key in
 		"--help" | "-h")
-			echo " --status, -s = all, exited, created, running\n --time, -t = h(hour), d(day) " 
+			echo "--status, -s = all, exited, created, running\n--time, -t = h(hour), d(day) " 
+			echo "Example --> sh catch-container.sh --status=exited --time=1d"
+			exit 0
 		;;
 		"--status" | "-s")
 			status="$value"
