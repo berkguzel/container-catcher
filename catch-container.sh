@@ -20,6 +20,13 @@ dateDiff () {
 	fi
 }
 
+if [ -z "$1" ]; then
+	  echo "Please enter the parameters"
+	  echo "--status, -s = all, exited, created, running\n--time, -t = h(hour), d(day) " 
+	  echo "Example --> sh catch-container.sh --status=exited --time=1d"
+	  exit 0
+fi
+
 for argument in "$@"; do
 	key=$( echo "${argument}" | cut -d '=' -f 1 )
 	value=$( echo "${argument}" | cut -d '=' -f 2 )
