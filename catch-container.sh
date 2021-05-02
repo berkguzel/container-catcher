@@ -27,6 +27,15 @@ if [ -z "$1" ]; then
 	  exit 0
 fi
 
+if [ "$1" = "container" ] && [ "$2" = "all" ]; then
+	docker container prune
+fi
+
+if [ "$1" = "image" ] && [ "$2" = "all" ]; then
+	docker image prune
+fi
+	
+
 for argument in "$@"; do
 	key=$( echo "${argument}" | cut -d '=' -f 1 )
 	value=$( echo "${argument}" | cut -d '=' -f 2 )
